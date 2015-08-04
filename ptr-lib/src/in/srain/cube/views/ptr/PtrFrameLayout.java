@@ -651,6 +651,14 @@ public class PtrFrameLayout extends ViewGroup {
         tryToNotifyReset();
     }
 
+    public boolean autoRefreshWithResult() {
+        if (mStatus != PTR_STATUS_INIT) {
+            return false;
+        }
+        autoRefresh();
+        return true;
+    }
+
     public void autoRefresh() {
         autoRefresh(true, mDurationToCloseHeader);
     }
