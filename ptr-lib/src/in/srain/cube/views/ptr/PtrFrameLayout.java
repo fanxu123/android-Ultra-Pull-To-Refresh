@@ -46,7 +46,7 @@ public class PtrFrameLayout extends ViewGroup {
     private PtrHandler mPtrHandler;
     // working parameters
     private ScrollChecker mScrollChecker;
-    private int mPagingTouchSlop;
+    private int mPagingTouchSlop = 6;
     private int mHeaderHeight;
     private boolean mDisableWhenHorizontalMove = false;
     private int mFlag = 0x00;
@@ -101,6 +101,8 @@ public class PtrFrameLayout extends ViewGroup {
             mKeepHeaderWhenRefresh = arr.getBoolean(R.styleable.PtrFrameLayout_ptr_keep_header_when_refresh, mKeepHeaderWhenRefresh);
 
             mPullToRefresh = arr.getBoolean(R.styleable.PtrFrameLayout_ptr_pull_to_fresh, mPullToRefresh);
+
+            mPagingTouchSlop = arr.getInt(R.styleable.PtrFrameLayout_pagingtouchslop, mPagingTouchSlop);
             arr.recycle();
         }
 
