@@ -20,6 +20,8 @@
 
         <!-- keep header when refreshing-->
         <attr name="ptr_keep_header_when_refresh" format="boolean" />
+
+        <attr name="ptr_paging_touch_slop" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="PtrClassicHeader">

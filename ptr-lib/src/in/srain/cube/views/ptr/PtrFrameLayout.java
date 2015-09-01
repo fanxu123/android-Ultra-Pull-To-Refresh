@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.*;
 import android.widget.Scroller;
 import android.widget.TextView;
+
 import in.srain.cube.views.ptr.indicator.PtrIndicator;
 import in.srain.cube.views.ptr.util.PtrCLog;
 
@@ -46,7 +47,7 @@ public class PtrFrameLayout extends ViewGroup {
     private PtrHandler mPtrHandler;
     // working parameters
     private ScrollChecker mScrollChecker;
-    private int mPagingTouchSlop;
+    private int mPagingTouchSlop = 6;
     private int mHeaderHeight;
     private boolean mDisableWhenHorizontalMove = false;
     private int mFlag = 0x00;
@@ -101,6 +102,8 @@ public class PtrFrameLayout extends ViewGroup {
             mKeepHeaderWhenRefresh = arr.getBoolean(R.styleable.PtrFrameLayout_ptr_keep_header_when_refresh, mKeepHeaderWhenRefresh);
 
             mPullToRefresh = arr.getBoolean(R.styleable.PtrFrameLayout_ptr_pull_to_fresh, mPullToRefresh);
+
+            mPagingTouchSlop = arr.getInt(R.styleable.PtrFrameLayout_ptr_paging_touch_slop, mPagingTouchSlop);
             arr.recycle();
         }
 
@@ -881,6 +884,10 @@ public class PtrFrameLayout extends ViewGroup {
     @SuppressWarnings({"unused"})
     public View getHeaderView() {
         return mHeaderView;
+    }
+
+    public void setPagingTouchSlop(int slop) {
+        mPagingTouchSlop = slop;
     }
 
     public void setHeaderView(View header) {
