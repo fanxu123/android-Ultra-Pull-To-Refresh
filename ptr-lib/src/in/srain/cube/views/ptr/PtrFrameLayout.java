@@ -108,9 +108,9 @@ public class PtrFrameLayout extends ViewGroup {
         }
 
         mScrollChecker = new ScrollChecker();
-
-        final ViewConfiguration conf = ViewConfiguration.get(getContext());
-        mPagingTouchSlop = conf.getScaledTouchSlop() * 2;
+        
+//        final ViewConfiguration conf = ViewConfiguration.get(getContext());
+//        mPagingTouchSlop = conf.getScaledTouchSlop() * 2;
     }
 
     @Override
